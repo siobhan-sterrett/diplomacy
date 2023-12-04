@@ -140,11 +140,11 @@ Budapest:
   terrain: Inland
 Bulgaria:
   coasts:
-    east:
+    East:
     - Constantinople
     - BlackSea
     - Rumania
-    south:
+    South:
     - Constantinople
     - AegeanSea
     - Greece
@@ -624,15 +624,15 @@ Smyrna:
   terrain: Coastal
 Spain:
   coasts:
-    north:
+    North:
     - Gascony
     - MidAtlanticOcean
     - Portugal
-    south:
+    South:
     - Portugal
     - MidAtlanticOcean
     - WesternMediterranean
-    - GulfOfLyons
+    - GulfOfLyon
     - Marseilles
   display_name: Spain
   neighbors:
@@ -646,10 +646,10 @@ Spain:
   terrain: Coastal
 StPetersburg:
   coasts:
-    north:
+    North:
     - Norway
-    - Barents Sea
-    south:
+    - BarentsSea
+    South:
     - Livonia
     - GulfOfBothnia
     - Finland

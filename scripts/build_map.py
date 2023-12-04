@@ -70,16 +70,16 @@ for lineno in range(372, 413):
         
 # Coasts I'll do by hand
 provinces['StPetersburg']['coasts'] = {
-    'north': ['Norway', 'Barents Sea'],
-    'south': ['Livonia', 'GulfOfBothnia', 'Finland']
+    'North': ['Norway', 'BarentsSea'],
+    'South': ['Livonia', 'GulfOfBothnia', 'Finland']
 }
 provinces['Spain']['coasts'] = {
-    'north': ['Gascony', 'MidAtlanticOcean', 'Portugal'],
-    'south': ['Portugal', 'MidAtlanticOcean', 'WesternMediterranean', 'GulfOfLyons', 'Marseilles']
+    'North': ['Gascony', 'MidAtlanticOcean', 'Portugal'],
+    'South': ['Portugal', 'MidAtlanticOcean', 'WesternMediterranean', 'GulfOfLyon', 'Marseilles']
 }
 provinces['Bulgaria']['coasts'] = {
-    'east': ['Constantinople', 'BlackSea', 'Rumania'],
-    'south': ['Constantinople', 'AegeanSea', 'Greece']
+    'East': ['Constantinople', 'BlackSea', 'Rumania'],
+    'South': ['Constantinople', 'AegeanSea', 'Greece']
 }
 
 with open('defs/map.yaml', 'w') as f:
