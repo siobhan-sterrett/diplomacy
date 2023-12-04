@@ -1,136 +1,124 @@
-- country: Austria
-  display_name: Bohemia
-  ident: Bohemia
+AdriaticSea:
+  display_name: Adriatic Sea
   neighbors:
-  - Munich
-  - Tyrolia
-  - Vienna
-  - Silesia
-  - Galicia
-  terrain: Inland
-- country: Austria
-  display_name: Budapest
-  ident: Budapest
-  neighbors:
-  - Vienna
-  - Galicia
-  - Rumania
-  - Serbia
   - Trieste
-  supply_center: true
-  terrain: Inland
-- country: Austria
-  display_name: Galicia
-  ident: Galicia
+  - Venice
+  - Apulia
+  - Albania
+  - IonianSea
+  terrain: Water
+AegeanSea:
+  display_name: Aegean Sea
   neighbors:
-  - Warsaw
-  - Silesia
-  - Ukraine
-  - Rumania
-  - Budapest
-  - Vienna
-  - Bohemia
-  terrain: Inland
-- country: Austria
-  display_name: Trieste
-  ident: Trieste
+  - Greece
+  - Bulgaria
+  - Constantinople
+  - Smyrna
+  - EasternMediterranean
+  - IonianSea
+  terrain: Water
+Albania:
+  display_name: Albania
   neighbors:
   - AdriaticSea
-  - Venice
-  - Tyrolia
-  - Vienna
-  - Budapest
+  - Trieste
   - Serbia
-  - Albania
+  - Greece
+  - IonianSea
+  terrain: Coastal
+Ankara:
+  country: Turkey
+  display_name: Ankara
+  neighbors:
+  - BlackSea
+  - Armenia
+  - Smyrna
+  - Constantinople
   supply_center: true
   terrain: Coastal
-- country: Austria
-  display_name: Tyrolia
-  ident: Tyrolia
+Apulia:
+  country: Italy
+  display_name: Apulia
   neighbors:
-  - Piedmont
-  - Munich
-  - Bohemia
-  - Vienna
-  - Trieste
+  - AdriaticSea
+  - IonianSea
+  - Naples
+  - Rome
   - Venice
-  terrain: Inland
-- country: Austria
-  display_name: Vienna
-  ident: Vienna
+  terrain: Coastal
+Armenia:
+  country: Turkey
+  display_name: Armenia
   neighbors:
-  - Trieste
+  - BlackSea
+  - Sevastopol
+  - Syria
+  - Ankara
+  - Smyrna
+  terrain: Coastal
+BalticSea:
+  display_name: Baltic Sea
+  neighbors:
+  - Sweden
+  - GulfOfBothnia
+  - Livonia
+  - Prussia
+  - Berlin
+  - Kiel
+  - Denmark
+  terrain: Water
+BarentsSea:
+  display_name: Barents Sea
+  neighbors:
+  - StPetersburg
+  - Norway
+  - NorwegianSea
+  terrain: Water
+Belgium:
+  display_name: Belgium
+  neighbors:
+  - Holland
+  - Ruhr
+  - Burgundy
+  - Picardy
+  - EnglishChannel
+  - NorthSea
+  supply_center: true
+  terrain: Coastal
+Berlin:
+  country: Germany
+  display_name: Berlin
+  neighbors:
+  - BalticSea
+  - Prussia
+  - Silesia
+  - Munich
+  - Kiel
+  supply_center: true
+  terrain: Coastal
+BlackSea:
+  display_name: Black Sea
+  neighbors:
+  - Sevastopol
+  - Armenia
+  - Ankara
+  - Constantinople
+  - Bulgaria
+  - Rumania
+  terrain: Water
+Bohemia:
+  country: Austria
+  display_name: Bohemia
+  neighbors:
+  - Munich
   - Tyrolia
-  - Bohemia
+  - Vienna
+  - Silesia
   - Galicia
-  - Budapest
-  supply_center: true
   terrain: Inland
-- country: England
-  display_name: Clyde
-  ident: Clyde
-  neighbors:
-  - NorthAtlanticOcean
-  - NorwegianSea
-  - Edinburgh
-  - Liverpool
-  terrain: Coastal
-- country: England
-  display_name: Edinburgh
-  ident: Edinburgh
-  neighbors:
-  - Clyde
-  - NorwegianSea
-  - NorthSea
-  - Yorkshire
-  - Liverpool
-  supply_center: true
-  terrain: Coastal
-- country: England
-  display_name: Liverpool
-  ident: Liverpool
-  neighbors:
-  - NorthAtlanticOcean
-  - IrishSea
-  - Clyde
-  - Edinburgh
-  - Yorkshire
-  - Wales
-  supply_center: true
-  terrain: Coastal
-- country: England
-  display_name: London
-  ident: London
-  neighbors:
-  - NorthSea
-  - EnglishChannel
-  - Wales
-  - Yorkshire
-  supply_center: true
-  terrain: Coastal
-- country: England
-  display_name: Wales
-  ident: Wales
-  neighbors:
-  - IrishSea
-  - EnglishChannel
-  - London
-  - Yorkshire
-  - Liverpool
-  terrain: Coastal
-- country: England
-  display_name: Yorkshire
-  ident: Yorkshire
-  neighbors:
-  - Liverpool
-  - Edinburgh
-  - London
-  - Wales
-  - NorthSea
-  terrain: Coastal
-- country: France
+Brest:
+  country: France
   display_name: Brest
-  ident: Brest
   neighbors:
   - EnglishChannel
   - MidAtlanticOcean
@@ -139,9 +127,40 @@
   - Gascony
   supply_center: true
   terrain: Coastal
-- country: France
+Budapest:
+  country: Austria
+  display_name: Budapest
+  neighbors:
+  - Vienna
+  - Galicia
+  - Rumania
+  - Serbia
+  - Trieste
+  supply_center: true
+  terrain: Inland
+Bulgaria:
+  coasts:
+    east:
+    - Constantinople
+    - BlackSea
+    - Rumania
+    south:
+    - Constantinople
+    - AegeanSea
+    - Greece
+  display_name: Bulgaria
+  neighbors:
+  - Rumania
+  - BlackSea
+  - Constantinople
+  - AegeanSea
+  - Greece
+  - Serbia
+  supply_center: true
+  terrain: Coastal
+Burgundy:
+  country: France
   display_name: Burgundy
-  ident: Burgundy
   neighbors:
   - Paris
   - Picardy
@@ -151,9 +170,91 @@
   - Marseilles
   - Gascony
   terrain: Inland
-- country: France
+Clyde:
+  country: England
+  display_name: Clyde
+  neighbors:
+  - NorthAtlanticOcean
+  - NorwegianSea
+  - Edinburgh
+  - Liverpool
+  terrain: Coastal
+Constantinople:
+  country: Turkey
+  display_name: Constantinople
+  neighbors:
+  - BlackSea
+  - Ankara
+  - Smyrna
+  - Bulgaria
+  - AegeanSea
+  supply_center: true
+  terrain: Coastal
+Denmark:
+  display_name: Denmark
+  neighbors:
+  - BalticSea
+  - Skagerrak
+  - HeligolandBight
+  - Kiel
+  - NorthSea
+  - Sweden
+  supply_center: true
+  terrain: Coastal
+EasternMediterranean:
+  display_name: Eastern Mediterranean
+  neighbors:
+  - Syria
+  - IonianSea
+  - AegeanSea
+  - Smyrna
+  terrain: Water
+Edinburgh:
+  country: England
+  display_name: Edinburgh
+  neighbors:
+  - Clyde
+  - NorwegianSea
+  - NorthSea
+  - Yorkshire
+  - Liverpool
+  supply_center: true
+  terrain: Coastal
+EnglishChannel:
+  display_name: English Channel
+  neighbors:
+  - London
+  - Belgium
+  - Picardy
+  - Brest
+  - MidAtlanticOcean
+  - IrishSea
+  - Wales
+  - NorthSea
+  terrain: Water
+Finland:
+  display_name: Finland
+  neighbors:
+  - StPetersburg
+  - Sweden
+  - Norway
+  - GulfOfBothnia
+  terrain: Coastal
+Galicia:
+  country: Austria
+  display_name: Galicia
+  neighbors:
+  - Warsaw
+  - Silesia
+  - Ukraine
+  - Rumania
+  - Budapest
+  - Vienna
+  - Bohemia
+  terrain: Inland
+Gascony:
+  country: France
   display_name: Gascony
-  ident: Gascony
   neighbors:
   - MidAtlanticOcean
   - Spain
@@ -162,51 +263,78 @@
   - Burgundy
   - Marseilles
   terrain: Coastal
-- country: France
-  display_name: Marseilles
-  ident: Marseilles
+Greece:
+  display_name: Greece
   neighbors:
-  - GulfOfLyon
-  - Spain
-  - Gascony
-  - Burgundy
-  - Piedmont
+  - IonianSea
+  - AegeanSea
+  - Albania
+  - Serbia
+  - Bulgaria
   supply_center: true
   terrain: Coastal
-- country: France
-  display_name: Paris
-  ident: Paris
+GulfOfBothnia:
+  display_name: Gulf of Bothnia
   neighbors:
-  - Brest
-  - Picardy
-  - Burgundy
-  - Gascony
-  supply_center: true
-  terrain: Inland
-- country: France
-  display_name: Picardy
-  ident: Picardy
-  neighbors:
-  - EnglishChannel
-  - Belgium
-  - Burgundy
-  - Paris
-  - Brest
-  terrain: Coastal
-- country: Germany
-  display_name: Berlin
-  ident: Berlin
-  neighbors:
+  - Sweden
+  - Finland
+  - Livonia
+  - StPetersburg
   - BalticSea
-  - Prussia
-  - Silesia
-  - Munich
+  terrain: Water
+GulfOfLyon:
+  display_name: Gulf of Lyon
+  neighbors:
+  - Marseilles
+  - Piedmont
+  - Tuscany
+  - TyrrhenianSea
+  - WesternMediterranean
+  - Spain
+  terrain: Water
+HeligolandBight:
+  display_name: Heligoland Bight
+  neighbors:
+  - Denmark
   - Kiel
+  - Holland
+  - NorthSea
+  terrain: Water
+Holland:
+  display_name: Holland
+  neighbors:
+  - Belgium
+  - NorthSea
+  - Kiel
+  - Ruhr
+  - HeligolandBight
   supply_center: true
   terrain: Coastal
-- country: Germany
+IonianSea:
+  display_name: Ionian Sea
+  neighbors:
+  - Tunis
+  - TyrrhenianSea
+  - Naples
+  - Apulia
+  - AdriaticSea
+  - Greece
+  - Albania
+  - AegeanSea
+  - EasternMediterranean
+  terrain: Water
+IrishSea:
+  display_name: Irish Sea
+  neighbors:
+  - NorthAtlanticOcean
+  - EnglishChannel
+  - MidAtlanticOcean
+  - Liverpool
+  - Wales
+  terrain: Water
+Kiel:
+  country: Germany
   display_name: Kiel
-  ident: Kiel
   neighbors:
   - HeligolandBight
   - Berlin
@@ -217,310 +345,130 @@
   - BalticSea
   supply_center: true
   terrain: Coastal
-- country: Germany
-  display_name: Munich
-  ident: Munich
+Liverpool:
+  country: England
+  display_name: Liverpool
   neighbors:
-  - Ruhr
-  - Kiel
-  - Berlin
-  - Silesia
-  - Bohemia
-  - Tyrolia
-  - Burgundy
-  supply_center: true
-  terrain: Inland
-- country: Germany
-  display_name: Prussia
-  ident: Prussia
-  neighbors:
-  - BalticSea
-  - Livonia
-  - Warsaw
-  - Silesia
-  - Berlin
-  terrain: Coastal
-- country: Germany
-  display_name: Ruhr
-  ident: Ruhr
-  neighbors:
-  - Belgium
-  - Holland
-  - Kiel
-  - Munich
-  - Burgundy
-  terrain: Inland
-- country: Germany
-  display_name: Silesia
-  ident: Silesia
-  neighbors:
-  - Munich
-  - Berlin
-  - Prussia
-  - Warsaw
-  - Galicia
-  - Bohemia
-  terrain: Inland
-- country: Italy
-  display_name: Apulia
-  ident: Apulia
-  neighbors:
-  - AdriaticSea
-  - IonianSea
-  - Naples
-  - Rome
-  - Venice
-  terrain: Coastal
-- country: Italy
-  display_name: Naples
-  ident: Naples
-  neighbors:
-  - IonianSea
-  - TyrrhenianSea
-  - Apulia
-  - Rome
+  - NorthAtlanticOcean
+  - IrishSea
+  - Clyde
+  - Edinburgh
+  - Yorkshire
+  - Wales
   supply_center: true
   terrain: Coastal
-- country: Italy
-  display_name: Piedmont
-  ident: Piedmont
-  neighbors:
-  - Marseilles
-  - Tyrolia
-  - GulfOfLyon
-  - Venice
-  - Tuscany
-  terrain: Coastal
-- country: Italy
-  display_name: Rome
-  ident: Rome
-  neighbors:
-  - TyrrhenianSea
-  - Naples
-  - Tuscany
-  - Venice
-  - Apulia
-  supply_center: true
-  terrain: Coastal
-- country: Italy
-  display_name: Tuscany
-  ident: Tuscany
-  neighbors:
-  - GulfOfLyon
-  - Piedmont
-  - Venice
-  - Rome
-  - TyrrhenianSea
-  terrain: Coastal
-- country: Italy
-  display_name: Venice
-  ident: Venice
-  neighbors:
-  - Piedmont
-  - Tyrolia
-  - Trieste
-  - AdriaticSea
-  - Apulia
-  - Tuscany
-  - Rome
-  supply_center: true
-  terrain: Coastal
-- country: Russia
-  display_name: Livonia
-  ident: Livonia
-  neighbors:
-  - BalticSea
-  - GulfOfBothnia
-  - StPetersburg
-  - Moscow
-  - Warsaw
-  - Prussia
-  terrain: Coastal
-- country: Russia
-  display_name: Moscow
-  ident: Moscow
-  neighbors:
-  - StPetersburg
-  - Sevastopol
-  - Ukraine
-  - Warsaw
-  - Livonia
-  supply_center: true
-  terrain: Inland
-- country: Russia
-  display_name: Sevastopol
-  ident: Sevastopol
-  neighbors:
-  - Armenia
-  - BlackSea
-  - Rumania
-  - Ukraine
-  - Moscow
-  supply_center: true
-  terrain: Coastal
-- coasts:
-    north:
-    - Norway
-    - Barents Sea
-    south:
-    - Livonia
-    - GulfOfBothnia
-    - Finland
+Livonia:
   country: Russia
-  display_name: St Petersburg
-  ident: StPetersburg
+  display_name: Livonia
   neighbors:
-  - BarentsSea
-  - Moscow
-  - Livonia
+  - BalticSea
   - GulfOfBothnia
-  - Finland
-  - Norway
-  supply_center: true
-  terrain: Coastal
-- country: Russia
-  display_name: Ukraine
-  ident: Ukraine
-  neighbors:
+  - StPetersburg
   - Moscow
-  - Sevastopol
-  - Rumania
-  - Galicia
   - Warsaw
-  terrain: Inland
-- country: Russia
-  display_name: Warsaw
-  ident: Warsaw
-  neighbors:
   - Prussia
-  - Livonia
-  - Moscow
-  - Ukraine
-  - Galicia
-  - Silesia
-  supply_center: true
-  terrain: Inland
-- country: Turkey
-  display_name: Ankara
-  ident: Ankara
-  neighbors:
-  - BlackSea
-  - Armenia
-  - Smyrna
-  - Constantinople
-  supply_center: true
   terrain: Coastal
-- country: Turkey
-  display_name: Armenia
-  ident: Armenia
+London:
+  country: England
+  display_name: London
   neighbors:
-  - BlackSea
-  - Sevastopol
-  - Syria
-  - Ankara
-  - Smyrna
-  terrain: Coastal
-- country: Turkey
-  display_name: Constantinople
-  ident: Constantinople
-  neighbors:
-  - BlackSea
-  - Ankara
-  - Smyrna
-  - Bulgaria
-  - AegeanSea
-  supply_center: true
-  terrain: Coastal
-- country: Turkey
-  display_name: Smyrna
-  ident: Smyrna
-  neighbors:
-  - EasternMediterranean
-  - AegeanSea
-  - Constantinople
-  - Ankara
-  - Armenia
-  - Syria
-  supply_center: true
-  terrain: Coastal
-- country: Turkey
-  display_name: Syria
-  ident: Syria
-  neighbors:
-  - Armenia
-  - Smyrna
-  - EasternMediterranean
-  terrain: Coastal
-- display_name: Albania
-  ident: Albania
-  neighbors:
-  - AdriaticSea
-  - Trieste
-  - Serbia
-  - Greece
-  - IonianSea
-  terrain: Coastal
-- display_name: Belgium
-  ident: Belgium
-  neighbors:
-  - Holland
-  - Ruhr
-  - Burgundy
-  - Picardy
-  - EnglishChannel
   - NorthSea
+  - EnglishChannel
+  - Wales
+  - Yorkshire
   supply_center: true
   terrain: Coastal
-- coasts:
-    east:
-    - Constantinople
-    - BlackSea
-    - Rumania
-    south:
-    - Constantinople
-    - AegeanSea
-    - Greece
-  display_name: Bulgaria
-  ident: Bulgaria
+Marseilles:
+  country: France
+  display_name: Marseilles
   neighbors:
-  - Rumania
-  - BlackSea
-  - Constantinople
-  - AegeanSea
-  - Greece
-  - Serbia
+  - GulfOfLyon
+  - Spain
+  - Gascony
+  - Burgundy
+  - Piedmont
   supply_center: true
   terrain: Coastal
-- display_name: Finland
-  ident: Finland
+MidAtlanticOcean:
+  display_name: Mid-Atlantic Ocean
+  neighbors:
+  - NorthAtlanticOcean
+  - IrishSea
+  - EnglishChannel
+  - Brest
+  - Gascony
+  - Spain
+  - Portugal
+  - WesternMediterranean
+  - NorthAfrica
+  terrain: Water
+Moscow:
+  country: Russia
+  display_name: Moscow
   neighbors:
   - StPetersburg
-  - Sweden
-  - Norway
-  - GulfOfBothnia
-  terrain: Coastal
-- display_name: Greece
-  ident: Greece
+  - Sevastopol
+  - Ukraine
+  - Warsaw
+  - Livonia
+  supply_center: true
+  terrain: Inland
+Munich:
+  country: Germany
+  display_name: Munich
+  neighbors:
+  - Ruhr
+  - Kiel
+  - Berlin
+  - Silesia
+  - Bohemia
+  - Tyrolia
+  - Burgundy
+  supply_center: true
+  terrain: Inland
+Naples:
+  country: Italy
+  display_name: Naples
   neighbors:
   - IonianSea
-  - AegeanSea
-  - Albania
-  - Serbia
-  - Bulgaria
+  - TyrrhenianSea
+  - Apulia
+  - Rome
   supply_center: true
   terrain: Coastal
-- display_name: Holland
-  ident: Holland
+NorthAfrica:
+  display_name: North Africa
   neighbors:
-  - Belgium
-  - NorthSea
-  - Kiel
-  - Ruhr
-  - HeligolandBight
-  supply_center: true
+  - MidAtlanticOcean
+  - WesternMediterranean
+  - Tunis
   terrain: Coastal
-- display_name: Norway
-  ident: Norway
+NorthAtlanticOcean:
+  display_name: North Atlantic Ocean
+  neighbors:
+  - NorwegianSea
+  - Clyde
+  - Liverpool
+  - IrishSea
+  - MidAtlanticOcean
+  terrain: Water
+NorthSea:
+  display_name: North Sea
+  neighbors:
+  - NorwegianSea
+  - Skagerrak
+  - Denmark
+  - HeligolandBight
+  - Holland
+  - Belgium
+  - EnglishChannel
+  - London
+  - Yorkshire
+  - Edinburgh
+  - Norway
+  terrain: Water
+Norway:
+  display_name: Norway
   neighbors:
   - NorwegianSea
   - NorthSea
@@ -531,22 +479,86 @@
   - StPetersburg
   supply_center: true
   terrain: Coastal
-- display_name: North Africa
-  ident: NorthAfrica
+NorwegianSea:
+  display_name: Norwegian Sea
   neighbors:
-  - MidAtlanticOcean
-  - WesternMediterranean
-  - Tunis
+  - NorthAtlanticOcean
+  - Norway
+  - BarentsSea
+  - NorthSea
+  - Clyde
+  - Edinburgh
+  terrain: Water
+Paris:
+  country: France
+  display_name: Paris
+  neighbors:
+  - Brest
+  - Picardy
+  - Burgundy
+  - Gascony
+  supply_center: true
+  terrain: Inland
+Picardy:
+  country: France
+  display_name: Picardy
+  neighbors:
+  - EnglishChannel
+  - Belgium
+  - Burgundy
+  - Paris
+  - Brest
   terrain: Coastal
-- display_name: Portugal
-  ident: Portugal
+Piedmont:
+  country: Italy
+  display_name: Piedmont
+  neighbors:
+  - Marseilles
+  - Tyrolia
+  - GulfOfLyon
+  - Venice
+  - Tuscany
+  terrain: Coastal
+Portugal:
+  display_name: Portugal
   neighbors:
   - MidAtlanticOcean
   - Spain
   supply_center: true
   terrain: Coastal
-- display_name: Rumania
-  ident: Rumania
+Prussia:
+  country: Germany
+  display_name: Prussia
+  neighbors:
+  - BalticSea
+  - Livonia
+  - Warsaw
+  - Silesia
+  - Berlin
+  terrain: Coastal
+Rome:
+  country: Italy
+  display_name: Rome
+  neighbors:
+  - TyrrhenianSea
+  - Naples
+  - Tuscany
+  - Venice
+  - Apulia
+  supply_center: true
+  terrain: Coastal
+Ruhr:
+  country: Germany
+  display_name: Ruhr
+  neighbors:
+  - Belgium
+  - Holland
+  - Kiel
+  - Munich
+  - Burgundy
+  terrain: Inland
+Rumania:
+  display_name: Rumania
   neighbors:
   - BlackSea
   - Bulgaria
@@ -557,8 +569,8 @@
   - Sevastopol
   supply_center: true
   terrain: Coastal
-- display_name: Serbia
-  ident: Serbia
+Serbia:
+  display_name: Serbia
   neighbors:
   - Trieste
   - Budapest
@@ -568,7 +580,50 @@
   - Albania
   supply_center: true
   terrain: Inland
-- coasts:
+Sevastopol:
+  country: Russia
+  display_name: Sevastopol
+  neighbors:
+  - Armenia
+  - BlackSea
+  - Rumania
+  - Ukraine
+  - Moscow
+  supply_center: true
+  terrain: Coastal
+Silesia:
+  country: Germany
+  display_name: Silesia
+  neighbors:
+  - Munich
+  - Berlin
+  - Prussia
+  - Warsaw
+  - Galicia
+  - Bohemia
+  terrain: Inland
+Skagerrak:
+  display_name: Skagerrak
+  neighbors:
+  - Norway
+  - Sweden
+  - Denmark
+  - NorthSea
+  terrain: Water
+Smyrna:
+  country: Turkey
+  display_name: Smyrna
+  neighbors:
+  - EasternMediterranean
+  - AegeanSea
+  - Constantinople
+  - Ankara
+  - Armenia
+  - Syria
+  supply_center: true
+  terrain: Coastal
+Spain:
+  coasts:
     north:
     - Gascony
     - MidAtlanticOcean
@@ -580,7 +635,6 @@
     - GulfOfLyons
     - Marseilles
   display_name: Spain
-  ident: Spain
   neighbors:
   - Portugal
   - MidAtlanticOcean
@@ -590,8 +644,28 @@
   - Marseilles
   supply_center: true
   terrain: Coastal
-- display_name: Sweden
-  ident: Sweden
+StPetersburg:
+  coasts:
+    north:
+    - Norway
+    - Barents Sea
+    south:
+    - Livonia
+    - GulfOfBothnia
+    - Finland
+  country: Russia
+  display_name: St Petersburg
+  neighbors:
+  - BarentsSea
+  - Moscow
+  - Livonia
+  - GulfOfBothnia
+  - Finland
+  - Norway
+  supply_center: true
+  terrain: Coastal
+Sweden:
+  display_name: Sweden
   neighbors:
   - GulfOfBothnia
   - Finland
@@ -601,8 +675,29 @@
   - Denmark
   supply_center: true
   terrain: Coastal
-- display_name: Tunis
-  ident: Tunis
+Syria:
+  country: Turkey
+  display_name: Syria
+  neighbors:
+  - Armenia
+  - Smyrna
+  - EasternMediterranean
+  terrain: Coastal
+Trieste:
+  country: Austria
+  display_name: Trieste
+  neighbors:
+  - AdriaticSea
+  - Venice
+  - Tyrolia
+  - Vienna
+  - Budapest
+  - Serbia
+  - Albania
+  supply_center: true
+  terrain: Coastal
+Tunis:
+  display_name: Tunis
   neighbors:
   - NorthAfrica
   - WesternMediterranean
@@ -610,190 +705,29 @@
   - TyrrhenianSea
   supply_center: true
   terrain: Coastal
-- display_name: Denmark
-  ident: Denmark
+Tuscany:
+  country: Italy
+  display_name: Tuscany
   neighbors:
-  - BalticSea
-  - Skagerrak
-  - HeligolandBight
-  - Kiel
-  - NorthSea
-  - Sweden
-  supply_center: true
+  - GulfOfLyon
+  - Piedmont
+  - Venice
+  - Rome
+  - TyrrhenianSea
   terrain: Coastal
-- display_name: Adriatic Sea
-  ident: AdriaticSea
+Tyrolia:
+  country: Austria
+  display_name: Tyrolia
   neighbors:
+  - Piedmont
+  - Munich
+  - Bohemia
+  - Vienna
   - Trieste
   - Venice
-  - Apulia
-  - Albania
-  - IonianSea
-  terrain: Water
-- display_name: Aegean Sea
-  ident: AegeanSea
-  neighbors:
-  - Greece
-  - Bulgaria
-  - Constantinople
-  - Smyrna
-  - EasternMediterranean
-  - IonianSea
-  terrain: Water
-- display_name: Baltic Sea
-  ident: BalticSea
-  neighbors:
-  - Sweden
-  - GulfOfBothnia
-  - Livonia
-  - Prussia
-  - Berlin
-  - Kiel
-  - Denmark
-  terrain: Water
-- display_name: Barents Sea
-  ident: BarentsSea
-  neighbors:
-  - StPetersburg
-  - Norway
-  - NorwegianSea
-  terrain: Water
-- display_name: Black Sea
-  ident: BlackSea
-  neighbors:
-  - Sevastopol
-  - Armenia
-  - Ankara
-  - Constantinople
-  - Bulgaria
-  - Rumania
-  terrain: Water
-- display_name: Eastern Mediterranean
-  ident: EasternMediterranean
-  neighbors:
-  - Syria
-  - IonianSea
-  - AegeanSea
-  - Smyrna
-  terrain: Water
-- display_name: English Channel
-  ident: EnglishChannel
-  neighbors:
-  - London
-  - Belgium
-  - Picardy
-  - Brest
-  - MidAtlanticOcean
-  - IrishSea
-  - Wales
-  - NorthSea
-  terrain: Water
-- display_name: Gulf of Bothnia
-  ident: GulfOfBothnia
-  neighbors:
-  - Sweden
-  - Finland
-  - Livonia
-  - StPetersburg
-  - BalticSea
-  terrain: Water
-- display_name: Gulf of Lyon
-  ident: GulfOfLyon
-  neighbors:
-  - Marseilles
-  - Piedmont
-  - Tuscany
-  - TyrrhenianSea
-  - WesternMediterranean
-  - Spain
-  terrain: Water
-- display_name: Heligoland Bight
-  ident: HeligolandBight
-  neighbors:
-  - Denmark
-  - Kiel
-  - Holland
-  - NorthSea
-  terrain: Water
-- display_name: Ionian Sea
-  ident: IonianSea
-  neighbors:
-  - Tunis
-  - TyrrhenianSea
-  - Naples
-  - Apulia
-  - AdriaticSea
-  - Greece
-  - Albania
-  - AegeanSea
-  - EasternMediterranean
-  terrain: Water
-- display_name: Irish Sea
-  ident: IrishSea
-  neighbors:
-  - NorthAtlanticOcean
-  - EnglishChannel
-  - MidAtlanticOcean
-  - Liverpool
-  - Wales
-  terrain: Water
-- display_name: Mid-Atlantic Ocean
-  ident: MidAtlanticOcean
-  neighbors:
-  - NorthAtlanticOcean
-  - IrishSea
-  - EnglishChannel
-  - Brest
-  - Gascony
-  - Spain
-  - Portugal
-  - WesternMediterranean
-  - NorthAfrica
-  terrain: Water
-- display_name: North Atlantic Ocean
-  ident: NorthAtlanticOcean
-  neighbors:
-  - NorwegianSea
-  - Clyde
-  - Liverpool
-  - IrishSea
-  - MidAtlanticOcean
-  terrain: Water
-- display_name: North Sea
-  ident: NorthSea
-  neighbors:
-  - NorwegianSea
-  - Skagerrak
-  - Denmark
-  - HeligolandBight
-  - Holland
-  - Belgium
-  - EnglishChannel
-  - London
-  - Yorkshire
-  - Edinburgh
-  - Norway
-  terrain: Water
-- display_name: Norwegian Sea
-  ident: NorwegianSea
-  neighbors:
-  - NorthAtlanticOcean
-  - Norway
-  - BarentsSea
-  - NorthSea
-  - Clyde
-  - Edinburgh
-  terrain: Water
-- display_name: Skagerrak
-  ident: Skagerrak
-  neighbors:
-  - Norway
-  - Sweden
-  - Denmark
-  - NorthSea
-  terrain: Water
-- display_name: Tyrrhenian Sea
-  ident: TyrrhenianSea
+  terrain: Inland
+TyrrhenianSea:
+  display_name: Tyrrhenian Sea
   neighbors:
   - GulfOfLyon
   - WesternMediterranean
@@ -803,8 +737,64 @@
   - Naples
   - IonianSea
   terrain: Water
-- display_name: Western Mediterranean
-  ident: WesternMediterranean
+Ukraine:
+  country: Russia
+  display_name: Ukraine
+  neighbors:
+  - Moscow
+  - Sevastopol
+  - Rumania
+  - Galicia
+  - Warsaw
+  terrain: Inland
+Venice:
+  country: Italy
+  display_name: Venice
+  neighbors:
+  - Piedmont
+  - Tyrolia
+  - Trieste
+  - AdriaticSea
+  - Apulia
+  - Tuscany
+  - Rome
+  supply_center: true
+  terrain: Coastal
+Vienna:
+  country: Austria
+  display_name: Vienna
+  neighbors:
+  - Trieste
+  - Tyrolia
+  - Bohemia
+  - Galicia
+  - Budapest
+  supply_center: true
+  terrain: Inland
+Wales:
+  country: England
+  display_name: Wales
+  neighbors:
+  - IrishSea
+  - EnglishChannel
+  - London
+  - Yorkshire
+  - Liverpool
+  terrain: Coastal
+Warsaw:
+  country: Russia
+  display_name: Warsaw
+  neighbors:
+  - Prussia
+  - Livonia
+  - Moscow
+  - Ukraine
+  - Galicia
+  - Silesia
+  supply_center: true
+  terrain: Inland
+WesternMediterranean:
+  display_name: Western Mediterranean
   neighbors:
   - NorthAfrica
   - MidAtlanticOcean
@@ -813,3 +803,13 @@
   - Tunis
   - TyrrhenianSea
   terrain: Water
+Yorkshire:
+  country: England
+  display_name: Yorkshire
+  neighbors:
+  - Liverpool
+  - Edinburgh
+  - London
+  - Wales
+  - NorthSea
+  terrain: Coastal

@@ -13,7 +13,7 @@ for lineno in range(82, 157):
     # Extract tne name in CamelCase
     if match := re.search(r'(?P<province>\w+$)', line):
         province: str = match['province']
-        provinces[province] = {'ident': province}
+        provinces[province] = {}
     else:
         print(f'Error on line {lineno}: expected province name', file=sys.stderr)
         exit(1)
@@ -45,8 +45,7 @@ for lineno in range(242, 317):
     if match := re.match(r'adjacency (?P<province>\w+) = \[(?P<neighbors>\w+(, \w+)*)]', line):
         province: str = match['province']
         neighbors: list[str] = match['neighbors'].split(', ')
-        neighbor_names: list[str] = [provinces[neighbor]['ident'] for neighbor in neighbors]
-        provinces[province]['neighbors'] = neighbor_names
+        provinces[province]['neighbors'] = neighbors
     else:
         print(f'Error on line {lineno}: expected adjacency information', file=sys.stderr)
         exit(1)
@@ -84,4 +83,4 @@ provinces['Bulgaria']['coasts'] = {
 }
 
 with open('defs/map.yaml', 'w') as f:
-    dump(list(provinces.values()), f, Dumper=Dumper)
+    dump(provinces, f, Dumper=Dumper)
