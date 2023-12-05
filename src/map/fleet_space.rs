@@ -217,7 +217,7 @@ impl FleetSpace {
         }
     }
     pub fn neighbors(&self) -> &'static [FleetSpace] {
-        match (&self) {
+        match &self {
             FleetSpace::AdriaticSea => {
                 &[
                     FleetSpace::Trieste,

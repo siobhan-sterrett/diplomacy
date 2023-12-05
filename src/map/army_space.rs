@@ -183,7 +183,7 @@ impl ArmySpace {
         }
     }
     pub fn neighbors(&self) -> &'static [ArmySpace] {
-        match (&self) {
+        match &self {
             ArmySpace::Albania => {
                 &[ArmySpace::Trieste, ArmySpace::Serbia, ArmySpace::Greece]
             }

@@ -162,7 +162,7 @@ fn build_province_impl(provinces: &[Province]) -> String {
 }
 
 fn build_province_rs(provinces: &[Province]) -> Result<(), Box<dyn Error>> {
-    let mut f = fs::File::create("src/province.rs")?;
+    let mut f = fs::File::create("src/map/province.rs")?;
 
     writeln!(f, "{}", &build_province_enum(&provinces))?;
     writeln!(f, "{}", &build_province_display_impl(&provinces))?;
@@ -269,7 +269,7 @@ fn build_army_space_fn_neighbors(army_spaces: &[ArmySpace]) -> syn::File {
 
     parse_quote! {
         pub fn neighbors(&self) -> &'static [ArmySpace] {
-            match (&self) {
+            match &self {
                 #(ArmySpace::#idents => #neighbors),*
             }
         }
@@ -289,7 +289,7 @@ fn build_army_space_impl(army_spaces: &[ArmySpace]) -> String {
 }
 
 fn build_army_space_rs(army_spaces: &[ArmySpace]) -> Result<(), Box<dyn Error>> {
-    let mut f = fs::File::create("src/army_space.rs")?;
+    let mut f = fs::File::create("src/map/army_space.rs")?;
 
     writeln!(f, "{}", &build_army_space_enum(army_spaces))?;
     writeln!(f, "{}", &build_army_space_display_impl(army_spaces))?;
@@ -418,7 +418,7 @@ fn build_fleet_space_fn_neighbors(fleet_spaces: &[FleetSpace]) -> syn::File {
 
     parse_quote! {
         pub fn neighbors(&self) -> &'static [FleetSpace] {
-            match (&self) {
+            match &self {
                 #(FleetSpace::#idents => #neighbors),*
             }
         }
@@ -438,7 +438,7 @@ fn build_fleet_space_impl(fleet_spaces: &[FleetSpace]) -> String {
 }
 
 fn build_fleet_space_rs(fleet_spaces: &[FleetSpace]) -> Result<(), Box<dyn Error>> {
-    let mut f = fs::File::create("src/fleet_space.rs")?;
+    let mut f = fs::File::create("src/map/fleet_space.rs")?;
 
     writeln!(f, "{}", &build_fleet_space_enum(fleet_spaces))?;
     writeln!(f, "{}", &build_fleet_space_display_impl(fleet_spaces))?;
