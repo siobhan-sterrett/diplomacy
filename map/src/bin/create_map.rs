@@ -1,4 +1,4 @@
-use std::{fs, path};
+use std::{error::Error, fs, path};
 
 use askama::Template;
 use clap::Parser;
@@ -14,6 +14,48 @@ use map::{
 struct MapTemplate {
     units: Vec<UnitSpec>,
     supply_centers: Vec<SupplyCenterSpec>,
+}
+
+impl MapTemplate {
+    fn load(map_state: &MapState) -> MapTemplate {
+        let mut template = MapTemplate {
+            units: Vec::new(),
+            supply_centers: Vec::new(),
+        };
+
+        for (
+            country,
+            MapStatePerCountry {
+                armies,
+                fleets,
+                supply_centers,
+            },
+        ) in map_state.iter()
+        {
+            for army in armies {
+                template.units.push(UnitSpec {
+                    country: *country,
+                    space: Space::Army(*army),
+                });
+            }
+
+            for fleet in fleets {
+                template.units.push(UnitSpec {
+                    country: *country,
+                    space: Space::Fleet(*fleet),
+                });
+            }
+
+            for supply_center in supply_centers {
+                template.supply_centers.push(SupplyCenterSpec {
+                    country: *country,
+                    supply_center: *supply_center,
+                })
+            }
+        }
+
+        template
+    }
 }
 
 struct UnitSpec {
@@ -33,51 +75,32 @@ struct Cli {
     output: Option<path::PathBuf>,
 }
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let args = Cli::parse();
-
-    let f = fs::File::open(args.state_file)?;
-    let map_state: MapState = serde_yaml::from_reader(f)?;
-
-    let mut template = MapTemplate {
-        units: vec![],
-        supply_centers: vec![],
-    };
-
-    for (
-        country,
-        MapStatePerCountry {
-            armies,
-            fleets,
-            supply_centers,
-        },
-    ) in map_state.iter()
-    {
-        for army in armies {
-            template.units.push(UnitSpec {
-                country: *country,
-                space: Space::Army(*army),
-            });
-        }
-
-        for fleet in fleets {
-            template.units.push(UnitSpec {
-                country: *country,
-                space: Space::Fleet(*fleet),
-            });
-        }
-
-        for supply_center in supply_centers {
-            template.supply_centers.push(SupplyCenterSpec {
-                country: *country,
-                supply_center: *supply_center,
-            })
-        }
+impl Cli {
+    fn load_map_state(&self) -> Result<MapState, Box<dyn Error>> {
+        let f = fs::File::open(&self.state_file)?;
+        let map_state = serde_yaml::from_reader(f)?;
+        Ok(map_state)
     }
 
-    let output_path = args.output.unwrap_or(path::PathBuf::from("map.svg"));
-    let mut f = fs::File::create(output_path)?;
-    template.write_into(&mut f)?;
+    fn write_map(&self, template: &MapTemplate) -> Result<(), Box<dyn Error>> {
+        let mut f = if let Some(output_path) = &self.output {
+            fs::File::create(output_path)?
+        } else {
+            fs::File::create("map.svg")?
+        };
+        template.write_into(&mut f)?;
+        Ok(())
+    }
+}
+
+fn main() -> Result<(), Box<dyn Error>> {
+    let args = Cli::parse();
+
+    let map_state = args.load_map_state()?;
+
+    let template = MapTemplate::load(&map_state);
+
+    args.write_map(&template)?;
 
     Ok(())
 }
