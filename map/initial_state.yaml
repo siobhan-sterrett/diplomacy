@@ -1,0 +1,70 @@
+Austria:
+  armies:
+    - Budapest
+    - Vienna
+  fleets:
+    - Trieste
+  supply_centers:
+    - Budapest
+    - Trieste
+    - Vienna
+England:
+  armies:
+    - Liverpool
+  fleets:
+    - Edinburgh
+    - London
+  supply_centers:
+    - Edinburgh
+    - Liverpool
+    - London
+France:
+  armies:
+    - Marseilles
+    - Paris
+  fleets:
+    - Brest
+  supply_centers:
+    - Brest
+    - Marseilles
+    - Paris
+Germany:
+  armies:
+    - Berlin
+    - Munich
+  fleets:
+    - Kiel
+  supply_centers:
+    - Berlin
+    - Kiel
+    - Munich
+Italy:
+  armies:
+    - Rome
+    - Venice
+  fleets:
+    - Naples
+  supply_centers:
+    - Naples
+    - Rome
+    - Venice
+Russia:
+  armies:
+    - Moscow
+    - Warsaw
+  fleets:
+    - StPetersburgSouthCoast
+  supply_centers:
+    - Moscow
+    - StPetersburg
+    - Warsaw
+Turkey:
+  armies:
+    - Constantinople
+    - Smyrna
+  fleets:
+    - Ankara
+  supply_centers:
+    - Ankara
+    - Constantinople
+    - Smyrna

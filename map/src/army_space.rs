@@ -1,4 +1,6 @@
-#[derive(Copy, Clone, Debug, PartialEq, Eq, Hash)]
+use serde::Deserialize;
+
+#[derive(Copy, Clone, Debug, Deserialize, PartialEq, Eq, Hash)]
 pub enum ArmySpace {
     Albania,
     Ankara,
@@ -122,6 +124,67 @@ impl core::fmt::Display for ArmySpace {
 }
 
 impl ArmySpace {
+    pub fn ident(&self) -> &'static str {
+        match &self {
+            &ArmySpace::Albania => "Albania",
+            &ArmySpace::Ankara => "Ankara",
+            &ArmySpace::Apulia => "Apulia",
+            &ArmySpace::Armenia => "Armenia",
+            &ArmySpace::Belgium => "Belgium",
+            &ArmySpace::Berlin => "Berlin",
+            &ArmySpace::Bohemia => "Bohemia",
+            &ArmySpace::Brest => "Brest",
+            &ArmySpace::Budapest => "Budapest",
+            &ArmySpace::Bulgaria => "Bulgaria",
+            &ArmySpace::Burgundy => "Burgundy",
+            &ArmySpace::Clyde => "Clyde",
+            &ArmySpace::Constantinople => "Constantinople",
+            &ArmySpace::Denmark => "Denmark",
+            &ArmySpace::Edinburgh => "Edinburgh",
+            &ArmySpace::Finland => "Finland",
+            &ArmySpace::Galicia => "Galicia",
+            &ArmySpace::Gascony => "Gascony",
+            &ArmySpace::Greece => "Greece",
+            &ArmySpace::Holland => "Holland",
+            &ArmySpace::Kiel => "Kiel",
+            &ArmySpace::Liverpool => "Liverpool",
+            &ArmySpace::Livonia => "Livonia",
+            &ArmySpace::London => "London",
+            &ArmySpace::Marseilles => "Marseilles",
+            &ArmySpace::Moscow => "Moscow",
+            &ArmySpace::Munich => "Munich",
+            &ArmySpace::Naples => "Naples",
+            &ArmySpace::NorthAfrica => "NorthAfrica",
+            &ArmySpace::Norway => "Norway",
+            &ArmySpace::Paris => "Paris",
+            &ArmySpace::Picardy => "Picardy",
+            &ArmySpace::Piedmont => "Piedmont",
+            &ArmySpace::Portugal => "Portugal",
+            &ArmySpace::Prussia => "Prussia",
+            &ArmySpace::Rome => "Rome",
+            &ArmySpace::Ruhr => "Ruhr",
+            &ArmySpace::Rumania => "Rumania",
+            &ArmySpace::Serbia => "Serbia",
+            &ArmySpace::Sevastopol => "Sevastopol",
+            &ArmySpace::Silesia => "Silesia",
+            &ArmySpace::Smyrna => "Smyrna",
+            &ArmySpace::Spain => "Spain",
+            &ArmySpace::StPetersburg => "StPetersburg",
+            &ArmySpace::Sweden => "Sweden",
+            &ArmySpace::Syria => "Syria",
+            &ArmySpace::Trieste => "Trieste",
+            &ArmySpace::Tunis => "Tunis",
+            &ArmySpace::Tuscany => "Tuscany",
+            &ArmySpace::Tyrolia => "Tyrolia",
+            &ArmySpace::Ukraine => "Ukraine",
+            &ArmySpace::Venice => "Venice",
+            &ArmySpace::Vienna => "Vienna",
+            &ArmySpace::Wales => "Wales",
+            &ArmySpace::Warsaw => "Warsaw",
+            &ArmySpace::Yorkshire => "Yorkshire",
+        }
+    }
+
     pub fn province(&self) -> super::province::Province {
         match &self {
             ArmySpace::Albania => super::province::Province::Albania,
@@ -184,356 +247,285 @@ impl ArmySpace {
     }
     pub fn neighbors(&self) -> &'static [ArmySpace] {
         match &self {
-            ArmySpace::Albania => {
-                &[ArmySpace::Trieste, ArmySpace::Serbia, ArmySpace::Greece]
-            }
-            ArmySpace::Ankara => {
-                &[ArmySpace::Armenia, ArmySpace::Smyrna, ArmySpace::Constantinople]
-            }
+            ArmySpace::Albania => &[ArmySpace::Trieste, ArmySpace::Serbia, ArmySpace::Greece],
+            ArmySpace::Ankara => &[
+                ArmySpace::Armenia,
+                ArmySpace::Smyrna,
+                ArmySpace::Constantinople,
+            ],
             ArmySpace::Apulia => &[ArmySpace::Naples, ArmySpace::Rome, ArmySpace::Venice],
-            ArmySpace::Armenia => {
-                &[
-                    ArmySpace::Sevastopol,
-                    ArmySpace::Syria,
-                    ArmySpace::Ankara,
-                    ArmySpace::Smyrna,
-                ]
-            }
-            ArmySpace::Belgium => {
-                &[
-                    ArmySpace::Holland,
-                    ArmySpace::Ruhr,
-                    ArmySpace::Burgundy,
-                    ArmySpace::Picardy,
-                ]
-            }
-            ArmySpace::Berlin => {
-                &[
-                    ArmySpace::Prussia,
-                    ArmySpace::Silesia,
-                    ArmySpace::Munich,
-                    ArmySpace::Kiel,
-                ]
-            }
-            ArmySpace::Bohemia => {
-                &[
-                    ArmySpace::Munich,
-                    ArmySpace::Tyrolia,
-                    ArmySpace::Vienna,
-                    ArmySpace::Silesia,
-                    ArmySpace::Galicia,
-                ]
-            }
-            ArmySpace::Brest => {
-                &[ArmySpace::Picardy, ArmySpace::Paris, ArmySpace::Gascony]
-            }
-            ArmySpace::Budapest => {
-                &[
-                    ArmySpace::Vienna,
-                    ArmySpace::Galicia,
-                    ArmySpace::Rumania,
-                    ArmySpace::Serbia,
-                    ArmySpace::Trieste,
-                ]
-            }
-            ArmySpace::Bulgaria => {
-                &[
-                    ArmySpace::Rumania,
-                    ArmySpace::Constantinople,
-                    ArmySpace::Greece,
-                    ArmySpace::Serbia,
-                ]
-            }
-            ArmySpace::Burgundy => {
-                &[
-                    ArmySpace::Paris,
-                    ArmySpace::Picardy,
-                    ArmySpace::Belgium,
-                    ArmySpace::Ruhr,
-                    ArmySpace::Munich,
-                    ArmySpace::Marseilles,
-                    ArmySpace::Gascony,
-                ]
-            }
+            ArmySpace::Armenia => &[
+                ArmySpace::Sevastopol,
+                ArmySpace::Syria,
+                ArmySpace::Ankara,
+                ArmySpace::Smyrna,
+            ],
+            ArmySpace::Belgium => &[
+                ArmySpace::Holland,
+                ArmySpace::Ruhr,
+                ArmySpace::Burgundy,
+                ArmySpace::Picardy,
+            ],
+            ArmySpace::Berlin => &[
+                ArmySpace::Prussia,
+                ArmySpace::Silesia,
+                ArmySpace::Munich,
+                ArmySpace::Kiel,
+            ],
+            ArmySpace::Bohemia => &[
+                ArmySpace::Munich,
+                ArmySpace::Tyrolia,
+                ArmySpace::Vienna,
+                ArmySpace::Silesia,
+                ArmySpace::Galicia,
+            ],
+            ArmySpace::Brest => &[ArmySpace::Picardy, ArmySpace::Paris, ArmySpace::Gascony],
+            ArmySpace::Budapest => &[
+                ArmySpace::Vienna,
+                ArmySpace::Galicia,
+                ArmySpace::Rumania,
+                ArmySpace::Serbia,
+                ArmySpace::Trieste,
+            ],
+            ArmySpace::Bulgaria => &[
+                ArmySpace::Rumania,
+                ArmySpace::Constantinople,
+                ArmySpace::Greece,
+                ArmySpace::Serbia,
+            ],
+            ArmySpace::Burgundy => &[
+                ArmySpace::Paris,
+                ArmySpace::Picardy,
+                ArmySpace::Belgium,
+                ArmySpace::Ruhr,
+                ArmySpace::Munich,
+                ArmySpace::Marseilles,
+                ArmySpace::Gascony,
+            ],
             ArmySpace::Clyde => &[ArmySpace::Edinburgh, ArmySpace::Liverpool],
             ArmySpace::Constantinople => {
                 &[ArmySpace::Ankara, ArmySpace::Smyrna, ArmySpace::Bulgaria]
             }
             ArmySpace::Denmark => &[ArmySpace::Kiel, ArmySpace::Sweden],
-            ArmySpace::Edinburgh => {
-                &[ArmySpace::Clyde, ArmySpace::Yorkshire, ArmySpace::Liverpool]
-            }
-            ArmySpace::Finland => {
-                &[ArmySpace::StPetersburg, ArmySpace::Sweden, ArmySpace::Norway]
-            }
-            ArmySpace::Galicia => {
-                &[
-                    ArmySpace::Warsaw,
-                    ArmySpace::Silesia,
-                    ArmySpace::Ukraine,
-                    ArmySpace::Rumania,
-                    ArmySpace::Budapest,
-                    ArmySpace::Vienna,
-                    ArmySpace::Bohemia,
-                ]
-            }
-            ArmySpace::Gascony => {
-                &[
-                    ArmySpace::Spain,
-                    ArmySpace::Brest,
-                    ArmySpace::Paris,
-                    ArmySpace::Burgundy,
-                    ArmySpace::Marseilles,
-                ]
-            }
-            ArmySpace::Greece => {
-                &[ArmySpace::Albania, ArmySpace::Serbia, ArmySpace::Bulgaria]
-            }
+            ArmySpace::Edinburgh => &[ArmySpace::Clyde, ArmySpace::Yorkshire, ArmySpace::Liverpool],
+            ArmySpace::Finland => &[
+                ArmySpace::StPetersburg,
+                ArmySpace::Sweden,
+                ArmySpace::Norway,
+            ],
+            ArmySpace::Galicia => &[
+                ArmySpace::Warsaw,
+                ArmySpace::Silesia,
+                ArmySpace::Ukraine,
+                ArmySpace::Rumania,
+                ArmySpace::Budapest,
+                ArmySpace::Vienna,
+                ArmySpace::Bohemia,
+            ],
+            ArmySpace::Gascony => &[
+                ArmySpace::Spain,
+                ArmySpace::Brest,
+                ArmySpace::Paris,
+                ArmySpace::Burgundy,
+                ArmySpace::Marseilles,
+            ],
+            ArmySpace::Greece => &[ArmySpace::Albania, ArmySpace::Serbia, ArmySpace::Bulgaria],
             ArmySpace::Holland => &[ArmySpace::Belgium, ArmySpace::Kiel, ArmySpace::Ruhr],
-            ArmySpace::Kiel => {
-                &[
-                    ArmySpace::Berlin,
-                    ArmySpace::Munich,
-                    ArmySpace::Ruhr,
-                    ArmySpace::Holland,
-                    ArmySpace::Denmark,
-                ]
-            }
-            ArmySpace::Liverpool => {
-                &[
-                    ArmySpace::Clyde,
-                    ArmySpace::Edinburgh,
-                    ArmySpace::Yorkshire,
-                    ArmySpace::Wales,
-                ]
-            }
-            ArmySpace::Livonia => {
-                &[
-                    ArmySpace::StPetersburg,
-                    ArmySpace::Moscow,
-                    ArmySpace::Warsaw,
-                    ArmySpace::Prussia,
-                ]
-            }
+            ArmySpace::Kiel => &[
+                ArmySpace::Berlin,
+                ArmySpace::Munich,
+                ArmySpace::Ruhr,
+                ArmySpace::Holland,
+                ArmySpace::Denmark,
+            ],
+            ArmySpace::Liverpool => &[
+                ArmySpace::Clyde,
+                ArmySpace::Edinburgh,
+                ArmySpace::Yorkshire,
+                ArmySpace::Wales,
+            ],
+            ArmySpace::Livonia => &[
+                ArmySpace::StPetersburg,
+                ArmySpace::Moscow,
+                ArmySpace::Warsaw,
+                ArmySpace::Prussia,
+            ],
             ArmySpace::London => &[ArmySpace::Wales, ArmySpace::Yorkshire],
-            ArmySpace::Marseilles => {
-                &[
-                    ArmySpace::Spain,
-                    ArmySpace::Gascony,
-                    ArmySpace::Burgundy,
-                    ArmySpace::Piedmont,
-                ]
-            }
-            ArmySpace::Moscow => {
-                &[
-                    ArmySpace::StPetersburg,
-                    ArmySpace::Sevastopol,
-                    ArmySpace::Ukraine,
-                    ArmySpace::Warsaw,
-                    ArmySpace::Livonia,
-                ]
-            }
-            ArmySpace::Munich => {
-                &[
-                    ArmySpace::Ruhr,
-                    ArmySpace::Kiel,
-                    ArmySpace::Berlin,
-                    ArmySpace::Silesia,
-                    ArmySpace::Bohemia,
-                    ArmySpace::Tyrolia,
-                    ArmySpace::Burgundy,
-                ]
-            }
+            ArmySpace::Marseilles => &[
+                ArmySpace::Spain,
+                ArmySpace::Gascony,
+                ArmySpace::Burgundy,
+                ArmySpace::Piedmont,
+            ],
+            ArmySpace::Moscow => &[
+                ArmySpace::StPetersburg,
+                ArmySpace::Sevastopol,
+                ArmySpace::Ukraine,
+                ArmySpace::Warsaw,
+                ArmySpace::Livonia,
+            ],
+            ArmySpace::Munich => &[
+                ArmySpace::Ruhr,
+                ArmySpace::Kiel,
+                ArmySpace::Berlin,
+                ArmySpace::Silesia,
+                ArmySpace::Bohemia,
+                ArmySpace::Tyrolia,
+                ArmySpace::Burgundy,
+            ],
             ArmySpace::Naples => &[ArmySpace::Apulia, ArmySpace::Rome],
             ArmySpace::NorthAfrica => &[ArmySpace::Tunis],
-            ArmySpace::Norway => {
-                &[ArmySpace::Sweden, ArmySpace::Finland, ArmySpace::StPetersburg]
-            }
-            ArmySpace::Paris => {
-                &[
-                    ArmySpace::Brest,
-                    ArmySpace::Picardy,
-                    ArmySpace::Burgundy,
-                    ArmySpace::Gascony,
-                ]
-            }
-            ArmySpace::Picardy => {
-                &[
-                    ArmySpace::Belgium,
-                    ArmySpace::Burgundy,
-                    ArmySpace::Paris,
-                    ArmySpace::Brest,
-                ]
-            }
-            ArmySpace::Piedmont => {
-                &[
-                    ArmySpace::Marseilles,
-                    ArmySpace::Tyrolia,
-                    ArmySpace::Venice,
-                    ArmySpace::Tuscany,
-                ]
-            }
+            ArmySpace::Norway => &[
+                ArmySpace::Sweden,
+                ArmySpace::Finland,
+                ArmySpace::StPetersburg,
+            ],
+            ArmySpace::Paris => &[
+                ArmySpace::Brest,
+                ArmySpace::Picardy,
+                ArmySpace::Burgundy,
+                ArmySpace::Gascony,
+            ],
+            ArmySpace::Picardy => &[
+                ArmySpace::Belgium,
+                ArmySpace::Burgundy,
+                ArmySpace::Paris,
+                ArmySpace::Brest,
+            ],
+            ArmySpace::Piedmont => &[
+                ArmySpace::Marseilles,
+                ArmySpace::Tyrolia,
+                ArmySpace::Venice,
+                ArmySpace::Tuscany,
+            ],
             ArmySpace::Portugal => &[ArmySpace::Spain],
-            ArmySpace::Prussia => {
-                &[
-                    ArmySpace::Livonia,
-                    ArmySpace::Warsaw,
-                    ArmySpace::Silesia,
-                    ArmySpace::Berlin,
-                ]
-            }
-            ArmySpace::Rome => {
-                &[
-                    ArmySpace::Naples,
-                    ArmySpace::Tuscany,
-                    ArmySpace::Venice,
-                    ArmySpace::Apulia,
-                ]
-            }
-            ArmySpace::Ruhr => {
-                &[
-                    ArmySpace::Belgium,
-                    ArmySpace::Holland,
-                    ArmySpace::Kiel,
-                    ArmySpace::Munich,
-                    ArmySpace::Burgundy,
-                ]
-            }
-            ArmySpace::Rumania => {
-                &[
-                    ArmySpace::Bulgaria,
-                    ArmySpace::Serbia,
-                    ArmySpace::Budapest,
-                    ArmySpace::Galicia,
-                    ArmySpace::Ukraine,
-                    ArmySpace::Sevastopol,
-                ]
-            }
-            ArmySpace::Serbia => {
-                &[
-                    ArmySpace::Trieste,
-                    ArmySpace::Budapest,
-                    ArmySpace::Rumania,
-                    ArmySpace::Bulgaria,
-                    ArmySpace::Greece,
-                    ArmySpace::Albania,
-                ]
-            }
-            ArmySpace::Sevastopol => {
-                &[
-                    ArmySpace::Armenia,
-                    ArmySpace::Rumania,
-                    ArmySpace::Ukraine,
-                    ArmySpace::Moscow,
-                ]
-            }
-            ArmySpace::Silesia => {
-                &[
-                    ArmySpace::Munich,
-                    ArmySpace::Berlin,
-                    ArmySpace::Prussia,
-                    ArmySpace::Warsaw,
-                    ArmySpace::Galicia,
-                    ArmySpace::Bohemia,
-                ]
-            }
-            ArmySpace::Smyrna => {
-                &[
-                    ArmySpace::Constantinople,
-                    ArmySpace::Ankara,
-                    ArmySpace::Armenia,
-                    ArmySpace::Syria,
-                ]
-            }
-            ArmySpace::Spain => {
-                &[ArmySpace::Portugal, ArmySpace::Gascony, ArmySpace::Marseilles]
-            }
-            ArmySpace::StPetersburg => {
-                &[
-                    ArmySpace::Moscow,
-                    ArmySpace::Livonia,
-                    ArmySpace::Finland,
-                    ArmySpace::Norway,
-                ]
-            }
-            ArmySpace::Sweden => {
-                &[ArmySpace::Finland, ArmySpace::Norway, ArmySpace::Denmark]
-            }
+            ArmySpace::Prussia => &[
+                ArmySpace::Livonia,
+                ArmySpace::Warsaw,
+                ArmySpace::Silesia,
+                ArmySpace::Berlin,
+            ],
+            ArmySpace::Rome => &[
+                ArmySpace::Naples,
+                ArmySpace::Tuscany,
+                ArmySpace::Venice,
+                ArmySpace::Apulia,
+            ],
+            ArmySpace::Ruhr => &[
+                ArmySpace::Belgium,
+                ArmySpace::Holland,
+                ArmySpace::Kiel,
+                ArmySpace::Munich,
+                ArmySpace::Burgundy,
+            ],
+            ArmySpace::Rumania => &[
+                ArmySpace::Bulgaria,
+                ArmySpace::Serbia,
+                ArmySpace::Budapest,
+                ArmySpace::Galicia,
+                ArmySpace::Ukraine,
+                ArmySpace::Sevastopol,
+            ],
+            ArmySpace::Serbia => &[
+                ArmySpace::Trieste,
+                ArmySpace::Budapest,
+                ArmySpace::Rumania,
+                ArmySpace::Bulgaria,
+                ArmySpace::Greece,
+                ArmySpace::Albania,
+            ],
+            ArmySpace::Sevastopol => &[
+                ArmySpace::Armenia,
+                ArmySpace::Rumania,
+                ArmySpace::Ukraine,
+                ArmySpace::Moscow,
+            ],
+            ArmySpace::Silesia => &[
+                ArmySpace::Munich,
+                ArmySpace::Berlin,
+                ArmySpace::Prussia,
+                ArmySpace::Warsaw,
+                ArmySpace::Galicia,
+                ArmySpace::Bohemia,
+            ],
+            ArmySpace::Smyrna => &[
+                ArmySpace::Constantinople,
+                ArmySpace::Ankara,
+                ArmySpace::Armenia,
+                ArmySpace::Syria,
+            ],
+            ArmySpace::Spain => &[
+                ArmySpace::Portugal,
+                ArmySpace::Gascony,
+                ArmySpace::Marseilles,
+            ],
+            ArmySpace::StPetersburg => &[
+                ArmySpace::Moscow,
+                ArmySpace::Livonia,
+                ArmySpace::Finland,
+                ArmySpace::Norway,
+            ],
+            ArmySpace::Sweden => &[ArmySpace::Finland, ArmySpace::Norway, ArmySpace::Denmark],
             ArmySpace::Syria => &[ArmySpace::Armenia, ArmySpace::Smyrna],
-            ArmySpace::Trieste => {
-                &[
-                    ArmySpace::Venice,
-                    ArmySpace::Tyrolia,
-                    ArmySpace::Vienna,
-                    ArmySpace::Budapest,
-                    ArmySpace::Serbia,
-                    ArmySpace::Albania,
-                ]
-            }
+            ArmySpace::Trieste => &[
+                ArmySpace::Venice,
+                ArmySpace::Tyrolia,
+                ArmySpace::Vienna,
+                ArmySpace::Budapest,
+                ArmySpace::Serbia,
+                ArmySpace::Albania,
+            ],
             ArmySpace::Tunis => &[ArmySpace::NorthAfrica],
-            ArmySpace::Tuscany => {
-                &[ArmySpace::Piedmont, ArmySpace::Venice, ArmySpace::Rome]
-            }
-            ArmySpace::Tyrolia => {
-                &[
-                    ArmySpace::Piedmont,
-                    ArmySpace::Munich,
-                    ArmySpace::Bohemia,
-                    ArmySpace::Vienna,
-                    ArmySpace::Trieste,
-                    ArmySpace::Venice,
-                ]
-            }
-            ArmySpace::Ukraine => {
-                &[
-                    ArmySpace::Moscow,
-                    ArmySpace::Sevastopol,
-                    ArmySpace::Rumania,
-                    ArmySpace::Galicia,
-                    ArmySpace::Warsaw,
-                ]
-            }
-            ArmySpace::Venice => {
-                &[
-                    ArmySpace::Piedmont,
-                    ArmySpace::Tyrolia,
-                    ArmySpace::Trieste,
-                    ArmySpace::Apulia,
-                    ArmySpace::Tuscany,
-                    ArmySpace::Rome,
-                ]
-            }
-            ArmySpace::Vienna => {
-                &[
-                    ArmySpace::Trieste,
-                    ArmySpace::Tyrolia,
-                    ArmySpace::Bohemia,
-                    ArmySpace::Galicia,
-                    ArmySpace::Budapest,
-                ]
-            }
-            ArmySpace::Wales => {
-                &[ArmySpace::London, ArmySpace::Yorkshire, ArmySpace::Liverpool]
-            }
-            ArmySpace::Warsaw => {
-                &[
-                    ArmySpace::Prussia,
-                    ArmySpace::Livonia,
-                    ArmySpace::Moscow,
-                    ArmySpace::Ukraine,
-                    ArmySpace::Galicia,
-                    ArmySpace::Silesia,
-                ]
-            }
-            ArmySpace::Yorkshire => {
-                &[
-                    ArmySpace::Liverpool,
-                    ArmySpace::Edinburgh,
-                    ArmySpace::London,
-                    ArmySpace::Wales,
-                ]
-            }
+            ArmySpace::Tuscany => &[ArmySpace::Piedmont, ArmySpace::Venice, ArmySpace::Rome],
+            ArmySpace::Tyrolia => &[
+                ArmySpace::Piedmont,
+                ArmySpace::Munich,
+                ArmySpace::Bohemia,
+                ArmySpace::Vienna,
+                ArmySpace::Trieste,
+                ArmySpace::Venice,
+            ],
+            ArmySpace::Ukraine => &[
+                ArmySpace::Moscow,
+                ArmySpace::Sevastopol,
+                ArmySpace::Rumania,
+                ArmySpace::Galicia,
+                ArmySpace::Warsaw,
+            ],
+            ArmySpace::Venice => &[
+                ArmySpace::Piedmont,
+                ArmySpace::Tyrolia,
+                ArmySpace::Trieste,
+                ArmySpace::Apulia,
+                ArmySpace::Tuscany,
+                ArmySpace::Rome,
+            ],
+            ArmySpace::Vienna => &[
+                ArmySpace::Trieste,
+                ArmySpace::Tyrolia,
+                ArmySpace::Bohemia,
+                ArmySpace::Galicia,
+                ArmySpace::Budapest,
+            ],
+            ArmySpace::Wales => &[
+                ArmySpace::London,
+                ArmySpace::Yorkshire,
+                ArmySpace::Liverpool,
+            ],
+            ArmySpace::Warsaw => &[
+                ArmySpace::Prussia,
+                ArmySpace::Livonia,
+                ArmySpace::Moscow,
+                ArmySpace::Ukraine,
+                ArmySpace::Galicia,
+                ArmySpace::Silesia,
+            ],
+            ArmySpace::Yorkshire => &[
+                ArmySpace::Liverpool,
+                ArmySpace::Edinburgh,
+                ArmySpace::London,
+                ArmySpace::Wales,
+            ],
         }
     }
 }
-
